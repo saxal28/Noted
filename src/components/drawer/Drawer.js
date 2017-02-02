@@ -3,11 +3,11 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 
-export default class DrawerSimpleExample extends React.Component {
+export default class DrawerSimpleExample extends Component{
 
   constructor(props) {
     super(props);
-    this.state = {open: true};
+    this.state = {open: false};
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -19,8 +19,9 @@ export default class DrawerSimpleExample extends React.Component {
           label="Toggle Drawer"
           onTouchTap={this.handleToggle}
         />
-        <Drawer open={this.state.open}>
-        {this.props.notes.map((x, index) => <MenuItem key={index}><span className="pull-left">{index+1}</span>{x.title}</MenuItem>)}
+        <Drawer open={this.state.open} docked={false}>
+        <MenuItem style={{background:"orange"}} onTouchTap={this.handleToggle}>General</MenuItem>
+        {this.props.notes.map((x, index) => <MenuItem key={index} onTouchTap={this.handleToggle}><span className="pull-left">{index+1}</span>{x.title}</MenuItem>)}
         <RaisedButton
           label="Toggle Drawer"
           onTouchTap={this.handleToggle}

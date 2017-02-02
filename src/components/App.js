@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Drawer from "./drawer/Drawer.js";
 import AppBar from "material-ui/AppBar/AppBar";
+import NoteContainer from "./NoteContainer/NoteContainer";
 import axios from "axios";
 
 class App extends Component {
@@ -25,8 +26,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <AppBar />
+        <AppBar/>
         <Drawer notes={this.state.notes}/>
+        <NoteContainer note={this.state.notes[0]}/>
       </div>
 
     );
