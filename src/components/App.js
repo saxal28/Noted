@@ -19,8 +19,6 @@ class App extends Component {
 
   chooseNote(num) {
     var activeNote = this.props.selectNote(num).note;
-    console.log("new active note", activeNote);
-    console.log(this)
     this.setState({ activeNote })
   }
 
@@ -30,7 +28,6 @@ class App extends Component {
     axios.get("http://pacific-everglades-32525.herokuapp.com/notes")
     .then(res => {
       notes = res.data.notes;
-      console.log(notes);
       app.setState({notes});
     })
   }
@@ -39,9 +36,10 @@ class App extends Component {
     this.getNotes();
   }
 
-  componentDidUpdate() {
-    this.getNotes();
-  }
+  // componentDidUpdate() {
+  //   if()
+  //   this.getNotes();
+  // }
 
   render() {
     return (
