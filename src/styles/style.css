@@ -1,3 +1,37 @@
 body {
   text-align: center;
+  background:url("http://www.1wallpaperhd.com/wp-content/uploads/Green/FTP1/2560x1440/Green%20minimalist%20abstract%20Wallpapers%20HD%202560x1440.jpg");
+  background:url("https://www.walldevil.com/wallpapers/a85/desktop-wallpaper-minimalist-light-green.jpg");
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+.note-container {
+  max-width:800;
+  margin:"20px auto";
+  min-height:300;
+  padding-top:40
+}
+
+.appbar-text{
+  padding-top: 20px;
+  font-weight:bold;
+  color:white;
+  padding-right:10px;
+}
+
+.appbar-icon {
+  padding-right:15px;
+  padding-top:11px;
+  color:white;
+  font-size:25px;
+  text-shadow:1px 1px #333;
+}
+
+/*h1 {
+  font-family: "Megrim";
+}*/
+
+p, h4, h1 {
+    font-family: 'Poppins', sans-serif;
 }

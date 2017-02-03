@@ -13,17 +13,17 @@ class NoteContainer extends Component {
   // }
   render(){
   return (
-    <Paper style={{maxWidth:800, margin:"20px auto", minHeight:300, paddingTop:40}} zDepth={2}>
+    <Paper style={{maxWidth:800, margin:"3% auto", minHeight:300, paddingTop:40, background:"rgba(255,255,255,0.8)"}} className="mobile" zDepth={2}>
       <h1>{this.props.note ? this.props.note.title : "..."}</h1>
       <h4>{this.props.note ? this.props.note.summary : "..."}</h4>
       <p style={{padding: 50, maxWidth:600, margin:"0 auto", textAlign:"left"}}>{lorem}</p>
 
-      <div style={{textAlign:"right", background:"lightblue", padding:5}}>
-        <span style={{marginLeft:10}}>{this.props.note ? this.props.note.author : "..."}</span>
+      <div style={{textAlign:"right", background:"rgba(0,0,0,0.8)", padding:5}}>
+        <span style={{marginRight:5, color:"white", fontWeight:"bold", fontSize:"16px"}}>{this.props.note ? this.props.note.author : "..."}</span>
         <Avatar
           style={{margin:5}}
           size={60}
-          src="https://pbs.twimg.com/profile_images/633817680286384128/TMHEs83b.jpg" />
+          src="https://www.getpostman.com/img/v2/logo-glyph.png?484c1b7984fa1f6fd5ca24322bfe148d" />
       </div>
     </Paper>
   )
@@ -31,10 +31,6 @@ class NoteContainer extends Component {
 }
 
 
-const lorem = "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+const lorem = "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
 
 export default NoteContainer;
-
-function renderTitle(nextProps) {
-  return <h1>{nextProps.title}</h1>
-}
