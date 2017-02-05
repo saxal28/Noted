@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <AppBar style={{background:"transparent", boxShadow:"none"}} showMenuIconButton={false}>
       <span className="appbar-icon"><Link to="/add" activeStyle={{ color: "#ff6600" }}><i className="fa fa-plus" aria-hidden="true"></i></Link></span>
       <span className="appbar-icon blue"><Link to="/" ><i className="fa fa-home" aria-hidden="true"></i></Link></span>
-      <span className="appbar-text">View All</span>
+      <span className="appbar-text"><Link to="/all" activeStyle={{ color: "#ff6600" }}>View All</Link></span>
     </AppBar>
   )
 }

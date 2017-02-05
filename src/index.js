@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/style.css';
 import './styles/animate.css';
+import "./plugins/main.js";
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -11,7 +12,6 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from "./reducers/index";
 import thunk from 'redux-thunk';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-
 
 
 //react-router
