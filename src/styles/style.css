@@ -1,9 +1,83 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
   text-align: center;
   background:url("http://www.1wallpaperhd.com/wp-content/uploads/Green/FTP1/2560x1440/Green%20minimalist%20abstract%20Wallpapers%20HD%202560x1440.jpg");
   background:url("https://www.walldevil.com/wallpapers/a85/desktop-wallpaper-minimalist-light-green.jpg");
   background-size:cover;
   background-attachment: fixed;
+  font-family: "Poppins";
+}
+
+.centered-fully {
+   -webkit-align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
+   display: -webkit-flex;
+   display: flex;
+}
+
+a {
+  color:white;
+}
+
+a:hover {
+  color:#ff6600;
+  text-decoration: none;
+  transition: all 400ms;
+}
+
+.fa {
+  font-size:18px;
+  margin-left:5px;
+}
+
+.fa-exclamation {
+  color:red;
+}
+
+.fa-check {
+  color:green;
+}
+
+.default-button {
+  background:transparent;
+  color:#333;
+  padding:9px;
+  font-size:16px;
+  border: 3px solid #333;
+  margin: 30px 5px;
+  font-weight:bold;
+}
+
+.default-button:hover {
+  background:#333;
+  color:white;
+  transition: all 400ms;
+}
+
+input[type=text], textarea {
+  border:3px solid #333;
+  padding:6px;
+  font-family: "Poppins";
+  margin:5px;
+  background:transparent;
+}
+
+textarea {
+  min-width:212px;
+  margin-left:135px;
+}
+
+label {
+  font-family: "Poppins";
+  font-size:20px;
+  min-width: 100px;
+  margin-right:10px;
+  text-align: right;
 }
 
 .note-container {

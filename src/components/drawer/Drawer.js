@@ -3,9 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from "material-ui/AppBar/AppBar";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import selectNote from "../../actions/selectNote";
+import { Link } from "react-router";
 
 export default class DrawerSimpleExample extends Component{
 
@@ -24,22 +22,23 @@ export default class DrawerSimpleExample extends Component{
   };
 
   render() {
-    const that = this;
     return (
       <div>
+
         <AppBar onLeftIconButtonTouchTap={this.handleToggle} style={{background:"transparent", boxShadow:"none"}}>
-        <span className="appbar-icon"><i className="fa fa-plus" aria-hidden="true"></i></span>
-        <span className="appbar-icon blue"><i className="fa fa-home" aria-hidden="true"></i></span>
-        <span className="appbar-text">View All</span>
+          <span className="appbar-icon"><Link to="/add" activeStyle={{ color: '#ff6600' }}><i className="fa fa-plus" aria-hidden="true"></i></Link></span>
+          <span className="appbar-icon blue"><Link to="/" activeStyle={{ color: '#ff6600' }}><i className="fa fa-home" aria-hidden="true"></i></Link></span>
+          <span className="appbar-text"><Link to="/all">View All</Link></span>
         </AppBar>
+
         <Drawer open={this.state.open} docked={false}>
-        <MenuItem style={{background:"orange"}}>General</MenuItem>
+        <MenuItem style={{background:"#ff6600"}}>General</MenuItem>
         {this.props.notes.map((x, index) =>
           <MenuItem key={index}
+            style={{textAlign:"left"}}
             onTouchTap={this.handleToggle}
-            onClick={() => this.getKey({index})}
-          >
-            <span className="pull-left" key={index} className="pizza">key: {index+1}</span>{x.title}
+            onClick={() => this.getKey({index})}>
+            {x.title}
           </MenuItem>)}
         <RaisedButton
           label="Toggle Drawer"
