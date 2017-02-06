@@ -27,7 +27,11 @@ class NotedContainer extends Component {
     getAllNotes()
     .then(res => {
       var notes = res.data.notes;
-      this.setState({notes});
+      var activeNote = res.data.notes.length - 1;
+      this.setState({
+        notes,
+        activeNote
+      });
     })
   }
 
@@ -35,11 +39,6 @@ class NotedContainer extends Component {
     this.getNotes();
     console.log(this.state.activeNote)
   }
-
-  // componentDidUpdate() {
-  //   if()
-  //   this.getNotes();
-  // }
 
   render() {
     return (

@@ -15,6 +15,7 @@ class NoteContainer extends Component {
   }
 
   render(){
+    const spanStyle = {marginRight:5, color:"white", fontWeight:"bold", fontSize:"16px"};
     return (
       <Paper style={{maxWidth:800, margin:"3% auto", minHeight:280, paddingTop:40, background:"rgba(255,255,255,0.8)"}} className="mobile" zDepth={2}>
         {
@@ -28,7 +29,8 @@ class NoteContainer extends Component {
 
         {/*this is the avatar bar */}
         <div style={{textAlign:"right", background:"rgba(0,0,0,0.8)", padding:5}}>
-          <span style={{marginRight:5, color:"white", fontWeight:"bold", fontSize:"16px"}}>{this.props.note ? this.props.note.author : "..."}</span>
+          <span style={spanStyle}>{this.props.note ? this.props.note.category : "..."}</span>
+          <span style={spanStyle}>{this.props.note ? this.props.note.author : "..."}</span>
 
             {this.props.addLink ?
               <Link to={`/notes/${this.props.note._id}`}><Avatar

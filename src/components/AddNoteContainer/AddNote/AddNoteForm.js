@@ -55,6 +55,15 @@ class AddNoteForm extends Component {
           <Field name="author" component="input" type="text" onChange={this.updateValues.bind(this)} />
           {this.valueExists(3) ? completed : notCompleted}
         </div>
+        <div>
+          <label style={{marginRight: 0, paddingRight:10}} htmlFor="body">Category</label>
+          <Field name="category" component="select" style={{width:213}} onChange={this.updateValues.bind(this)} >
+            <option>Random</option>
+            <option>Coding</option>
+            <option>Design</option>
+            <option>Fitness</option>
+          </Field>
+        </div>
       <Link to="/"><button className="default-button">Back</button></Link>
       {this.state.values.length === 4 ? <button className="default-button" type="submit">Add Note</button> : " " }
       </form>
