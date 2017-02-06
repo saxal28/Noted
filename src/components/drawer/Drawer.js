@@ -26,9 +26,9 @@ export default class DrawerSimpleExample extends Component{
       <div>
 
         <AppBar onLeftIconButtonTouchTap={this.handleToggle} style={{background:"transparent", boxShadow:"none"}}>
-          <span className="appbar-icon"><Link to="/add" activeStyle={{ color: '#ff6600' }}><i className="fa fa-plus" aria-hidden="true"></i></Link></span>
+          <span className="appbar-icon"><Link to="/notes/add" activeStyle={{ color: '#ff6600' }}><i className="fa fa-plus" aria-hidden="true"></i></Link></span>
           <span className="appbar-icon blue"><Link to="/" activeStyle={{ color: '#ff6600' }}><i className="fa fa-home" aria-hidden="true"></i></Link></span>
-          <span className="appbar-text"><Link to="/all">View All</Link></span>
+          <span className="appbar-text"><Link to="/notes/all">View All</Link></span>
         </AppBar>
 
         <Drawer open={this.state.open} docked={false}>
