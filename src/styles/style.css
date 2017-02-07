@@ -64,17 +64,25 @@ a:hover {
   transition: all 400ms;
 }
 
+.drawer-category {
+  color: white;
+  background:#333;
+  padding:10px;
+  font-weight:bold;
+  font-size:20px;
+}
+
 input[type=text], textarea, select {
   border:3px solid #333;
   padding:6px;
   font-family: "Poppins";
   margin:5px;
   background:rgba(255,255,255,0.5);
+  width:179px;
 }
 
 textarea {
-  min-width:212px;
-  margin-left:135px;
+  width:179px;
 }
 
 label {

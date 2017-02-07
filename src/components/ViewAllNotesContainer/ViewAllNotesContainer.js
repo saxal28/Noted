@@ -50,9 +50,10 @@ export default class ViewAllNotes extends Component {
                 <div className="col-sm-6">
                   <Note hideBody={true} note={note} key={index} smallerTitle={true} addLink={true}/>
                 </div>
-              )  
+              )
             } else {
-              if(note[this.state.searchType].toLowerCase().includes(this.state.category)) {
+              {/*able to filter by both lowercase and uppercase*/}
+              if(note[this.state.searchType].toLowerCase().includes(this.state.category) || note[this.state.searchType].includes(this.state.category)) {
                 return (
                   <div className="col-sm-6">
                     <Note hideBody={true} note={note} key={index} smallerTitle={true} addLink={true}/>

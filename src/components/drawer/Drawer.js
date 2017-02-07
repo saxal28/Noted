@@ -32,14 +32,21 @@ export default class DrawerSimpleExample extends Component{
         </AppBar>
 
         <Drawer open={this.state.open} docked={false}>
-        <MenuItem style={{background:"#ff6600"}}>General</MenuItem>
-        {this.props.notes.map((x, index) =>
-          <MenuItem key={index}
-            style={{textAlign:"left"}}
-            onTouchTap={this.handleToggle}
-            onClick={() => this.getKey({index})}>
-            {x.title}
-          </MenuItem>)}
+        <div className="drawer-category">All</div>
+          {this.props.notes.map((x, index) => {
+            return (
+              <div>
+                <MenuItem key={index}
+                  style={{textAlign:"left"}}
+                  onTouchTap={this.handleToggle}
+                  onClick={() => this.getKey({index})}>
+                  {x.title}
+                </MenuItem>
+            </div>
+            )
+          })
+        }
+
         <RaisedButton
           label="Toggle Drawer"
           onTouchTap={this.handleToggle}

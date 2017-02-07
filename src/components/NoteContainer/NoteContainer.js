@@ -27,7 +27,7 @@ class NotedContainer extends Component {
     getAllNotes()
     .then(res => {
       var notes = res.data.notes;
-      var activeNote = res.data.notes.length - 1;
+      var activeNote = res.data.notes.length-1;
       this.setState({
         notes,
         activeNote

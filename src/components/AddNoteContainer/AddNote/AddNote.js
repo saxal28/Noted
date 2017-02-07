@@ -15,6 +15,7 @@ export default class AddNote extends Component {
     const url = "http://pacific-everglades-32525.herokuapp.com/notes";
     axios.post(url, values).then(result => {
       browserHistory.push("/");
+      console.log("note added", result)
     }).catch(e => console.log(e));
   }
 

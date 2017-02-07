@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import getAllNotes from "../../util/getAllNotes.js";
 
-var notes = getAllNotes();
+// var notes = getAllNotes();
 
 export default class AddNoteContainer extends Component {
   render() {
