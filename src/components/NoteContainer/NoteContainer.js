@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import selectNote from "../../actions/selectNote";
 import { getNotes } from "../../actions/getNotes";
 import getAllNotes from "../../util/getAllNotes";
+import setUser from "../../actions/setUser";
 
 class NotedContainer extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class NotedContainer extends Component {
   render() {
     return (
       <div>
-        <Drawer notes={this.state.notes} selectNote={this.chooseNote.bind(this)}/>
+        <Drawer notes={this.state.notes} selectNote={this.chooseNote.bind(this)} user={this.props.user} setUser={this.props.setUser.bind(this)}/>
         <Note note={this.state.notes[this.state.activeNote]}/>
       </div>
     );
@@ -57,6 +58,7 @@ function mapStateToProps(state) {
       test: state,
       state: state,
       note: state,
+      user: state.user
       // notes: state
   }
 }
@@ -64,7 +66,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
       selectNote,
-      getNotes
+      getNotes,
+      setUser
     }, dispatch)
 }
 

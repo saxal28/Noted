@@ -4,11 +4,12 @@ import Paper from "material-ui/Paper/Paper";
 import Avatar from "material-ui/Avatar/Avatar";
 import LoginForm from "./LoginForm";
 import axios from "axios";
+import setUser from "../../../actions/setUser";
 import { browserHistory } from "react-router";
-// import { connect } from "react-redux";
-// import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props);
@@ -22,9 +23,11 @@ export default class Login extends Component {
       if(!result) {
         return console.log("hi")
       }
+      // console.log("login", result)
+      // console.log(result.data.user.username)
+      console.log(this.props.setUser("alan"))
+      this.props.setUser(result.data.user.username);
       browserHistory.push("/");
-      console.log("login", result)
-      console.log(result.data)
     }).catch(e => {
       console.log("error");
       that.setState({error: true})
@@ -60,3 +63,17 @@ export default class Login extends Component {
     );
   }
 }
+//
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    setUser
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

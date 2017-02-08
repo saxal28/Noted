@@ -4,11 +4,12 @@ import Paper from "material-ui/Paper/Paper";
 import Avatar from "material-ui/Avatar/Avatar";
 import RegisterForm from "./RegisterForm";
 import axios from "axios";
+import setUser from "../../../actions/setUser";
 import { browserHistory } from "react-router";
-// import { connect } from "react-redux";
-// import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-export default class Register extends Component {
+class Register extends Component {
 
   constructor(props) {
     super(props);
@@ -23,9 +24,8 @@ export default class Register extends Component {
       if(!result) {
         return console.log("name taken")
       }
+      this.props.setUser(result.data.user.username);
       browserHistory.push("/");
-      console.log("Register", result)
-      console.log(result.data)
     }).catch(e => that.setState({error: true}));
   }
 
@@ -57,3 +57,17 @@ export default class Register extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    setUser
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

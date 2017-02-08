@@ -52,6 +52,7 @@ class LoginForm extends Component {
           {this.valueExists(1) ? completed : notCompleted}
         </div>
       <Link to="/"><button className="default-button">Back</button></Link>
+
       {(this.state.values.indexOf("") === -1) ? <button className="default-button" type="submit">Login</button> : " " }
       </form>
     );
