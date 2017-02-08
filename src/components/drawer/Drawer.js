@@ -4,6 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from "material-ui/AppBar/AppBar";
 import { Link } from "react-router";
+import { Navbar } from "../Navbar/Navbar";
 
 export default class DrawerSimpleExample extends Component{
 
@@ -25,9 +26,11 @@ export default class DrawerSimpleExample extends Component{
     return (
       <div>
 
-        <AppBar onLeftIconButtonTouchTap={this.handleToggle} style={{background:"transparent", boxShadow:"none"}}>
-          <span className="appbar-icon"><Link to="/notes/add" activeStyle={{ color: '#ff6600' }}><i className="fa fa-plus" aria-hidden="true"></i></Link></span>
+        <AppBar onLeftIconButtonTouchTap={this.handleToggle.bind(this)} style={{background:"transparent", boxShadow:"none"}}>
+          <span className="appbar-text"><Link to="/login" activeStyle={{ color: "#ff6600" }}>Login</Link></span>
+          <span className="appbar-text"><Link to="/register" activeStyle={{ color: "#ff6600" }}>Register</Link></span>
           <span className="appbar-icon blue"><Link to="/" activeStyle={{ color: '#ff6600' }}><i className="fa fa-home" aria-hidden="true"></i></Link></span>
+          <span className="appbar-icon"><Link to="/notes/add" activeStyle={{ color: '#ff6600' }}><i className="fa fa-plus" aria-hidden="true"></i></Link></span>
           <span className="appbar-text"><Link to="/notes/all">View All</Link></span>
         </AppBar>
 

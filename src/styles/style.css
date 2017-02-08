@@ -72,7 +72,7 @@ a:hover {
   font-size:20px;
 }
 
-input[type=text], textarea, select {
+input[type=text], textarea, select, input[type=password] {
   border:3px solid #333;
   padding:6px;
   font-family: "Poppins";
