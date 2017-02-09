@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Note from "../NoteContainer/Note/Note";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
+import { connect } from "react-redux";
 
 
-export default class extends Component {
+class ViewANoteContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {note: null}
@@ -22,8 +23,15 @@ export default class extends Component {
     return (
       <div>
         <Navbar />
-        <Note note={this.state.note}/>
+        <Note note={this.state.note} user={this.props.user}/>
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+export default connect(mapStateToProps)(ViewANoteContainer)
