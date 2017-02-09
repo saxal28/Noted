@@ -26,17 +26,21 @@ class NoteContainer extends Component {
     const spanStyle = {marginRight:5, color:"white", fontWeight:"bold", fontSize:"16px"};
     return (
       <Paper style={{maxWidth:800, margin:"3% auto", minHeight:280, background:"rgba(255,255,255,0.8)"}} className="mobile" zDepth={2}>
-        <div style={{textAlign:"right", padding:10, marginBottom:40}}>
-          <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14, float:"left"}}>{this.props.note ? this.props.note.author : "..."}</span>
 
           {this.props.note ?
           (this.props.user.username === this.props.note.author ?
-            <span>
-              <Link  style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14}} to={`/notes/${this.props.note ? this.props.note._id : 1231354}/update`}><span>Update</span></Link>
-              <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14,  cursor:"pointer"}} onClick={this.deleteNote.bind(this)}>X</span>
-            </span>
-            : "") : "" }
-        </div>
+            <div style={{textAlign:"right", padding: 10, marginBottom:20}}>
+              <span>
+                <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14, float:"left"}}>{this.props.note ? this.props.note.author : "..."}</span>
+                <Link  style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14}} to={`/notes/${this.props.note ? this.props.note._id : 1231354}/update`}><span>Update</span></Link>
+                <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14,  cursor:"pointer"}} onClick={this.deleteNote.bind(this)}>X</span>
+              </span>
+          </div>
+            :
+            <div style={{textAlign:"right", padding: 10, marginBottom:40}}>
+              <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14, float:"left"}}>{this.props.note ? this.props.note.author : "..."}</span>
+            </div>
+          ) : "" }
         {
           this.props.smallerTitle ?
           <h1 style={{fontSize:23}}>{this.props.note ? this.props.note.title : spinner}</h1> :
