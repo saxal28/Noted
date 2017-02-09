@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import setUser from "../../actions/setUser";
 
-import axios from "axios";
-
 class Navbar extends React.Component {
   logout() {
     this.props.setUser(null);
@@ -26,19 +24,12 @@ class Navbar extends React.Component {
           <span className="appbar-text"><Link to="/register" activeStyle={{ color: "#ff6600" }}>Register</Link></span>
           </span>
         }
-        <span className="appbar-icon blue"><Link to="/" activeStyle={{ color: '#ff6600' }}><i className="fa fa-home" aria-hidden="true"></i></Link></span>
-        <span className="appbar-text"><Link to="/notes/all">View All</Link></span>
+        <span className="appbar-icon blue" style={{paddingTop:9}}><Link to="/"><i className="fa fa-home" aria-hidden="true"></i></Link></span>
+        <span className="appbar-text" style={{paddingLeft:5}}><Link to="/notes/all"  activeStyle={{ color: '#ff6600' }}>View All</Link></span>
       </AppBar>
     )
 
   }
-}
-
-function logout() {
-  console.log("hi")
-  axios.get("http://pacific-everglades-32525.herokuapp.com/logout").then(() => {
-    console.log("logged off")
-  }).catch(e => console.log(e));
 }
 
 function mapStateToProps(state) {

@@ -1,6 +1,4 @@
 import { GET_NOTES } from "./constants.js";
-import axios from "axios";
-
 var notes="[1234]"
 
 export function getNotes() {

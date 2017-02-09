@@ -10,7 +10,6 @@ class NoteContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: "",
       hideBody: false
     }
   }
@@ -23,13 +22,20 @@ class NoteContainer extends Component {
     })
   }
 
-
   render(){
     const spanStyle = {marginRight:5, color:"white", fontWeight:"bold", fontSize:"16px"};
     return (
       <Paper style={{maxWidth:800, margin:"3% auto", minHeight:280, background:"rgba(255,255,255,0.8)"}} className="mobile" zDepth={2}>
         <div style={{textAlign:"right", padding:10, marginBottom:40}}>
-          <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14, width:200}}>{this.props.note ? this.props.note.author : "..."}</span>
+          <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14, float:"left"}}>{this.props.note ? this.props.note.author : "..."}</span>
+
+          {this.props.note ?
+          (this.props.user.username === this.props.note.author ?
+            <span>
+              <Link  style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14}} to={`/notes/${this.props.note ? this.props.note._id : 1231354}/update`}><span>Update</span></Link>
+              <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14,  cursor:"pointer"}} onClick={this.deleteNote.bind(this)}>X</span>
+            </span>
+            : "") : "" }
         </div>
         {
           this.props.smallerTitle ?
@@ -41,6 +47,9 @@ class NoteContainer extends Component {
         <p style={{padding: 50, maxWidth:600, margin:"0 auto", textAlign:"left"}}>{this.props.hideBody ? "" : (this.props.note ? this.props.note.body : "")} </p>
 
         {/*this is the avatar bar */}
+        <div style={{textAlign:"right"}}>
+
+        </div>
         <div style={{textAlign:"right", background:"rgba(0,0,0,0.8)", padding:5}}>
           <span style={spanStyle}>{this.props.note ? this.props.note.category : "..."}</span>
 
@@ -56,7 +65,6 @@ class NoteContainer extends Component {
                   size={60}
                   src="https://www.getpostman.com/img/v2/logo-glyph.png?484c1b7984fa1f6fd5ca24322bfe148d" />
             }
-            <span onClick={this.deleteNote.bind(this)}>X</span>
 
         </div>
 
@@ -64,15 +72,5 @@ class NoteContainer extends Component {
     )
   }
 }
-
-// const catPictures = {
-//   "Random": "https://image.flaticon.com/icons/png/512/8/8235.png",
-//   "Coding" :"https://pbs.twimg.com/profile_images/633817680286384128/TMHEs83b.jpg",
-//   "Fitness" :"https://image.freepik.com/free-icon/businessman-running-fast-with-suitcase-in-right-hand_318-62442.jpg",
-//   "Design": "http://static.srcdn.com/wp-content/uploads/he-man-jon-chu-camp.jpg"
-// }
-
-
-const lorem = "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
 
 export default NoteContainer;

@@ -28,7 +28,14 @@ class NotedContainer extends Component {
     getAllNotes()
     .then(res => {
       var notes = res.data.notes;
-      var activeNote = res.data.notes.length-1;
+      var activeNote = 0;
+      // gets the most recent post
+      //if no user, defaults to 0
+      for (var i = 0; i < notes.length; i++) {
+        if (notes[i].author === this.props.user.username) {
+          activeNote = i;
+        }
+      }
       this.setState({
         notes,
         activeNote
@@ -45,7 +52,7 @@ class NotedContainer extends Component {
     return (
       <div>
         <Drawer notes={this.state.notes} selectNote={this.chooseNote.bind(this)} user={this.props.user} setUser={this.props.setUser.bind(this)}/>
-        <Note note={this.state.notes[this.state.activeNote]}/>
+        <Note note={this.state.notes[this.state.activeNote]} user={this.props.user}/>
       </div>
     );
   }

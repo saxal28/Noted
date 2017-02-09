@@ -4,10 +4,11 @@ import Paper from "material-ui/Paper/Paper";
 import Navbar from "../Navbar/Navbar";
 import Note from "../NoteContainer/Note/Note";
 import Searchbar from "./Searchbar";
+import { connect } from "react-redux";
 
 const paperStyle = {maxWidth:800, boxShadow:"none", margin:"0% auto", minHeight:300, paddingTop:20, background:"transparent", height:"auto"};
 
-export default class ViewAllNotes extends Component {
+class ViewAllNotes extends Component {
   constructor(props) {
     super(props)
     this.state = ({
@@ -47,8 +48,8 @@ export default class ViewAllNotes extends Component {
 
             if (this.state.category === null) {
               return (
-                <div className="col-sm-6">
-                  <Note hideBody={true} note={note} key={index} smallerTitle={true} addLink={true}/>
+                <div className="col-sm-6" key={index} >
+                  <Note hideBody={true} note={note} key={index} smallerTitle={true} addLink={true} user={this.props.user}/>
                 </div>
               )
             } else {
@@ -56,7 +57,7 @@ export default class ViewAllNotes extends Component {
               if(note[this.state.searchType].toLowerCase().includes(this.state.category) || note[this.state.searchType].includes(this.state.category)) {
                 return (
                   <div className="col-sm-6">
-                    <Note hideBody={true} note={note} key={index} smallerTitle={true} addLink={true}/>
+                    <Note hideBody={true} note={note} key={index} smallerTitle={true} addLink={true} user={this.props.user}/>
                   </div>
                 )
               }
@@ -68,3 +69,15 @@ export default class ViewAllNotes extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+      test: state,
+      state: state,
+      note: state,
+      user: state.user
+      // notes: state
+  }
+}
+
+export default connect(mapStateToProps, null)(ViewAllNotes);

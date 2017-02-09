@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from "material-ui/AppBar/AppBar";
 import { Link, browserHistory } from "react-router";
-import { Navbar } from "../Navbar/Navbar";
 
 export default class DrawerSimpleExample extends Component{
   constructor(props) {
@@ -40,16 +38,36 @@ export default class DrawerSimpleExample extends Component{
             <span className="appbar-text"><Link to="/register" activeStyle={{ color: "#ff6600" }}>Register</Link></span>
             </span>
           }
-          <span className="appbar-icon blue"><Link to="/" activeStyle={{ color: '#ff6600' }}><i className="fa fa-home" aria-hidden="true"></i></Link></span>
-          <span className="appbar-text"><Link to="/notes/all">View All</Link></span>
+          <span className="appbar-icon blue" style={{paddingTop:9}}><Link to="/" activeStyle={{ color: '#ff6600' }}><i className="fa fa-home" aria-hidden="true"></i></Link></span>
+          <span className="appbar-text"  style={{paddingLeft:5}}><Link to="/notes/all">View All</Link></span>
         </AppBar>
 
         <Drawer open={this.state.open} docked={false}>
-        <div className="drawer-category">All</div>
-          {this.props.notes.map((x, index) => {
+        <div className="drawer-category">{this.props.user.username ? `${this.props.user.username}'s notes` : "All"}</div>
+
+          {this.props.user.username ?
+
+            this.props.notes.map((x, index) => {
+            if(x.author === this.props.user.username) {
+              return (
+                <div key={index}>
+                  <MenuItem
+                    style={{textAlign:"left"}}
+                    onTouchTap={this.handleToggle}
+                    onClick={() => this.getKey({index})}>
+                    {x.title}
+                  </MenuItem>
+              </div>
+              )
+            }
+          })
+
+          :
+
+          this.props.notes.map((x, index) => {
             return (
-              <div>
-                <MenuItem key={index}
+              <div key={index}>
+                <MenuItem
                   style={{textAlign:"left"}}
                   onTouchTap={this.handleToggle}
                   onClick={() => this.getKey({index})}>
@@ -57,13 +75,12 @@ export default class DrawerSimpleExample extends Component{
                 </MenuItem>
             </div>
             )
-          })
+        })
         }
 
-        <RaisedButton
-          label="Toggle Drawer"
-          onTouchTap={this.handleToggle}
-        />
+
+        <div className="drawer-category" onTouchTap={this.handleToggle} style={{cursor:"pointer"}}>Hide</div>
+
         </Drawer>
       </div>
     );

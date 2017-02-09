@@ -6,7 +6,7 @@ import { Link } from "react-router";
 var completed = <i className="fa fa-check animated fadeInRight" aria-hidden="true"></i>;
 var notCompleted = <i className="fa fa-exclamation animated infinite wobble" aria-hidden="true"></i>;
 
-class AddNoteForm extends Component {
+class UpdateNoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = ({values: [""]});
@@ -46,7 +46,7 @@ class AddNoteForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        {this.props.user ? console.log(this.props.user) : console.log("njh")}
+        {this.props.note ? console.log(this.props.note) : console.log("njh")}
         <div>
           <label htmlFor="title">Title</label>
           <Field name="title" component="input" type="text" onChange={this.updateValues.bind(this)} />
@@ -74,15 +74,15 @@ class AddNoteForm extends Component {
           {this.valueExists(3) ? completed : notCompleted}
         </div>
       <Link to="/"><button className="default-button">Back</button></Link>
-      {(this.state.values.indexOf("") === -1) ? <button className="default-button" type="submit">Add Note</button> : " " }
+      {(this.state.values.indexOf("") === -1) ? <button className="default-button" type="submit">Update Note</button> : " " }
       </form>
     );
   }
 }
 
 // Decorate the form component
-AddNoteForm = reduxForm({
-  form: "addNoteForm" // a unique name for this form
-})(AddNoteForm);
+UpdateNoteForm = reduxForm({
+  form: "UpdateNoteForm" // a unique name for this form
+})(UpdateNoteForm);
 
-export default AddNoteForm;
+export default UpdateNoteForm;

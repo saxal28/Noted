@@ -12,7 +12,6 @@ export default class extends Component {
 
   componentWillMount() {
     var id = this.props.params.id;
-    var note;
     axios.get(`https://pacific-everglades-32525.herokuapp.com/notes/${id}`).then(note => {
       note = note.data;
       this.setState({note})
@@ -23,7 +22,6 @@ export default class extends Component {
     return (
       <div>
         <Navbar />
-        {console.log(this.state.note ? this.state.note : "...")}
         <Note note={this.state.note}/>
       </div>
     )
