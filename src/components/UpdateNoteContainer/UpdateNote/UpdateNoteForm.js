@@ -66,10 +66,9 @@ class UpdateNoteForm extends Component {
           <label style={{marginRight: 0, paddingRight:10}} htmlFor="body">Category</label>
           <Field name="category" component="select" onChange={this.updateValues.bind(this)}>
             <option></option>
-            <option>Random</option>
-            <option>Coding</option>
-            <option>Design</option>
-            <option>Fitness</option>
+              {this.props.notes ? this.props.notes.data.notes[0].categories.map((x, index) => {
+                return <option key={index}>{x}</option>
+              }) : ""}
           </Field>
           {this.valueExists(3) ? completed : notCompleted}
         </div>

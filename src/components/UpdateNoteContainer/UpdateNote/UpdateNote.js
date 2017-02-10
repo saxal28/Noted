@@ -13,15 +13,16 @@ class UpdateNote extends Component {
 
   constructor(props) {
     super(props)
-    this.state={note: null}
+    this.state={note: null, notes: null}
   }
 
   componentWillMount() {
     var parent = this;
     getAllNotes().then(res => {;
+      var notes = res;
       res.data.notes.forEach(note => {
         if(note._id === parent.props.params.id) {
-          parent.setState({note})
+          parent.setState({note, notes})
         }
       })
 
@@ -33,6 +34,10 @@ class UpdateNote extends Component {
     const url = `http://pacific-everglades-32525.herokuapp.com/notes/${id}`;
 
     axios.patch(url, values).then(result => {
+      if(!result.data.author) {
+        result.data.author = "Anon"
+      }
+      console.log(result)
       browserHistory.push("/");
     }).catch(e => console.log(e));
   }
@@ -47,7 +52,7 @@ class UpdateNote extends Component {
         <Paper style={{maxWidth:800, margin:"3% auto", minHeight:300, paddingTop:40, background:"rgba(255,255,255,0.8)"}} className="mobile" zDepth={2}>
           <h1 style={{paddingBottom:20}}>Update Note</h1>
 
-          <UpdateNoteForm onSubmit={this.handleSubmit.bind(this)} note={this.props.note} {...initialValues}/>
+          <UpdateNoteForm onSubmit={this.handleSubmit.bind(this)} note={this.props.note} notes={this.state.notes} {...initialValues}/>
 
           <div style={{textAlign:"right", background:"rgba(0,0,0,0.8)", padding:5}}>
             <span style={{marginRight:5, color:"white", fontWeight:"bold", fontSize:"16px"}}>You</span>

@@ -22,8 +22,9 @@ class AddNote extends Component {
 
   handleSubmit(values) {
     const url = "http://pacific-everglades-32525.herokuapp.com/notes";
-    const author = this.props.user ? this.props.user.username : "Anon";
+    const author = this.props.user.username ? this.props.user.username : "Anon";
     values.author = author;
+    console.log(values)
     axios.post(url, values).then(result => {
       browserHistory.push("/");
     }).catch(e => console.log(e));
