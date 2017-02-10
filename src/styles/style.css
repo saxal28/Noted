@@ -12,6 +12,10 @@ body {
   font-family: "Poppins";
 }
 
+.col-sm-6 {
+  height:320px;
+}
+
 .centered-fully {
    -webkit-align-items: center;
    -ms-flex-align: center;
