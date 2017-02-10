@@ -30,7 +30,7 @@ class NoteContainer extends Component {
 
           {this.props.note ?
           (this.props.user.username === this.props.note.author ?
-            <div style={{textAlign:"right", padding: 10, marginBottom:22}}>
+            <div style={{textAlign:"right", padding: 10, marginBottom:20}}>
               <span>
                 <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14, float:"left"}}>{this.props.note ? this.props.note.author : "..."}</span>
                 <Link  style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14}} to={`/notes/${this.props.note ? this.props.note._id : 1231354}/update`}><span>Update</span></Link>
@@ -47,7 +47,7 @@ class NoteContainer extends Component {
           <h1 style={{fontSize:23}}>{this.props.note ? this.props.note.title : spinner}</h1> :
           <h1>{this.props.note ? this.props.note.title : spinner}</h1>
         }
-        <h4>{this.props.note ? <Text>{this.props.note.summary}</Text> : spinner}</h4>
+        <h4 style={{color:'gray', fontSize:14}}>{this.props.note ? this.props.note.summary: spinner}</h4>
 
         <p style={{padding: 50, maxWidth:600, margin:"0 auto", textAlign:"left"}}>{this.props.hideBody ? "" : (this.props.note ? <Text>{this.props.note.body}</Text> : "")} </p>
 
