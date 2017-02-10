@@ -66,6 +66,7 @@ class AddNoteForm extends Component {
           <label style={{marginRight: 0, paddingRight:10}} htmlFor="body">Category</label>
           <Field name="category" component="select" onChange={this.updateValues.bind(this)}>
             <option></option>
+            {this.props.notes ? console.log(this.props.notes.data.notes[0].categories) : ""}
             <option>Random</option>
             <option>Coding</option>
             <option>Design</option>

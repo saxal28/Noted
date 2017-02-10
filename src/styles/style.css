@@ -21,7 +21,27 @@ body {
 }
 
 a {
+  color:gray;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size:12px;
+}
+
+a i.fa {
   color:white;
+}
+
+span.appbar-text > a {
+  color:white;
+  padding:0;
+  font-size:1em;
+}
+
+a i.fa:hover, span.appbar-text > a:hover {
+  color:#ff6600;
+  text-decoration: none;
+  transition: all 400ms;
 }
 
 a:hover {
@@ -47,6 +67,10 @@ a:hover {
 
 .fa-check {
   color:green;
+}
+
+.react-format-link {
+  color:red
 }
 
 .default-button {

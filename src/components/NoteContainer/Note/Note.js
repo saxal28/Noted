@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Paper from "material-ui/Paper/Paper";
 import Avatar from 'material-ui/Avatar';
 import { Link, browserHistory } from "react-router";
+import Text from "react-format-text";
 import axios from "axios";
 
 const spinner = <img src="https://www.roadscholar.org/Themes/RoadScholar/assets/images/spinner.gif" role="presentation" className="spinner"/>;
@@ -46,9 +47,9 @@ class NoteContainer extends Component {
           <h1 style={{fontSize:23}}>{this.props.note ? this.props.note.title : spinner}</h1> :
           <h1>{this.props.note ? this.props.note.title : spinner}</h1>
         }
-        <h4>{this.props.note ? this.props.note.summary : spinner}</h4>
+        <h4>{this.props.note ? <Text>{this.props.note.summary}</Text> : spinner}</h4>
 
-        <p style={{padding: 50, maxWidth:600, margin:"0 auto", textAlign:"left"}}>{this.props.hideBody ? "" : (this.props.note ? this.props.note.body : "")} </p>
+        <p style={{padding: 50, maxWidth:600, margin:"0 auto", textAlign:"left"}}>{this.props.hideBody ? "" : (this.props.note ? <Text>{this.props.note.body}</Text> : "")} </p>
 
         {/*this is the avatar bar */}
         <div style={{textAlign:"right"}}>
