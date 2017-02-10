@@ -30,7 +30,7 @@ class NoteContainer extends Component {
 
           {this.props.note ?
           (this.props.user.username === this.props.note.author ?
-            <div style={{textAlign:"right", padding: 10, marginBottom:20}}>
+            <div style={{textAlign:"right", padding: 10, marginBottom:22}}>
               <span>
                 <span style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14, float:"left"}}>{this.props.note ? this.props.note.author : "..."}</span>
                 <Link  style={{color:"gray", marginRight:5,fontWeight:"bold", fontSize:14}} to={`/notes/${this.props.note ? this.props.note._id : 1231354}/update`}><span>Update</span></Link>

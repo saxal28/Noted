@@ -51,9 +51,8 @@ class LoginForm extends Component {
           <Field name="password" component="input" type="password" onChange={this.updateValues.bind(this)} />
           {this.valueExists(1) ? completed : notCompleted}
         </div>
-      <Link to="/"><button className="default-button">Back</button></Link>
 
-      {(this.state.values.indexOf("") === -1) ? <button className="default-button" type="submit">Login</button> : " " }
+      {(this.state.values.indexOf("") === -1) ? <button className="default-button" type="submit">Login</button> :   <Link to="/"><button className="default-button">Back</button></Link> }
       </form>
     );
   }

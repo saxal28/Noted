@@ -72,8 +72,9 @@ class UpdateNoteForm extends Component {
           </Field>
           {this.valueExists(3) ? completed : notCompleted}
         </div>
-      <Link to="/"><button className="default-button">Back</button></Link>
-      {(this.state.values.indexOf("") === -1) ? <button className="default-button" type="submit">Update Note</button> : " " }
+      {(this.state.values.indexOf("") === -1) ? <button className="default-button" type="submit">Update Note</button> :
+            <Link to="/"><button className="default-button">Back</button></Link>
+      }
       </form>
     );
   }
